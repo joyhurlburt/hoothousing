@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="about">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<h2>Our Story</h2>
+					<p>Two years ago, I was applying for my first housing rental. The process was new to me, but I thought I had done everything right. My roommates and I had looked at the house, asked all right questions, and were satisfied that it was a place we would be comfortable in for the next year or perhaps longer.</p>
+					<p>Shortly after moving in, we came to the realization that everything was not as perfect as it seemed; the ceilings and floors sloped, the linoleum had cracks, the gas heater rocked unsteadily - all these worries on top of the newness of living on our own. I wish I could say things improved. Instead, mold began growing on our walls, the house was so poorly insulated that condensation would be visible and the walls slick to the touch. Our water heater barely lasted for one 8 minute shower (there were 5 of us), and our dryer went on the fritz and decided to burn holes in our clothes.</p>
+					<p>By the end of the year we were in disbelief that this place was even considered liveable. I wanted things to change. And not just with this rental agency, but with all property managers that preyed on inexperienced student leasers. By creating this website I hope to help other students become better informed about their future homes; both to prevent an experience like my own, but also to pressure property managers to up their standards on the properties that they themselves must know are dismal.</p>
+					<p>Take a look - read or write a review - and lets raise the standards of student housing.</p>
+				</div>
+                <div class="col-lg-12 team-photos">
+                    <div class="col-lg-2">
+                        <div class="thumbnail">
+                            <img src="{{ url_for('static', filename='images/taylor.png') }}" alt="...">
+                            <div class="caption">
+                                <h3>Taylor Oyama</h3>
+                                <h4>Founder & Designer</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="thumbnail">
+                            <img src="{{ url_for('static', filename='images/brandon.png') }}" alt="...">
+                            <div class="caption">
+                                <h3>Brandon Cordell</h3>
+                                <h4>Business Strategist</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="thumbnail">
+                            <img src="{{ url_for('static', filename='images/jordan.png') }}" alt="...">
+                            <div class="caption">
+                                <h3>Jordan Johnson</h3>
+                                <h4>Marketing Strategist</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="thumbnail">
+                            <img src="{{ url_for('static', filename='images/adam.png') }}" alt="...">
+                            <div class="caption">
+                                <h3>Adam Green</h3>
+                                <h4>System Administrator</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="thumbnail">
+                            <img src="{{ url_for('static', filename='images/joy.png') }}" alt="...">
+                            <div class="caption">
+                                <h3>Joy Hurlburt</h3>
+                                <h4>Front-End Developer</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="thumbnail">
+                            <img src="{{ url_for('static', filename='images/person-icon.png') }}" alt="...">
+                            <div class="caption">
+                                <h3>Open Position</h3>
+                                <h4>Back-End Developer</h4>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

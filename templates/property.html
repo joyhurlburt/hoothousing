@@ -1,0 +1,316 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="property-page">
+	<!-- Property Info Section -->
+	<div class="property-info">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					{% for result in prop_results %}
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						{% if result[1] %}
+						<h2>{{ result[1] }}</h2>
+						{% else %}
+						<h2>Property</h2>
+						{% endif %}
+						<address>
+							{{ result[2] }}<br>
+							{{ result[3] }}<br>
+                            {{ result[13] }} Beds, {{ result[14] }} Baths<br>
+							<a id="mgmt-link" href="/management/{{ result[4] }}">{{ result[5] }}</a>
+						</address>
+						<form class="form-horizontal" role="form" action=" ">
+							<div class="form-group">
+                                <div class="col-lg-4">
+                                    <label class="control-label">Property Rating</label>
+                                    <a href="#" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Calculated by averaging property ratings from all reviews for this property.">
+                                        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                                    </a>
+                                </div>
+                                <div class="col-lg-6">
+                                {% if result[6] > 4 %}
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                {% elif result[6] > 3 %}
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                {% elif result[6] > 2 %}
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                {% elif result[6] > 1 %}
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                {% elif result[6] > 0 %}
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                {% else %}
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                {% endif %}
+								</div>
+							</div>
+							<div class="form-group">
+                                <div class="col-lg-4">
+                                    <label class="control-label">Management Rating</label>
+                                    <a href="#" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Calculated by averaging management ratings from all reviews for this property.">
+                                        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                                    </a>
+                                </div>
+								<div class="col-lg-6">
+                                {% if result[10] > 4 %}
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                {% elif result[10] > 3 %}
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                {% elif result[10] > 2 %}
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                {% elif result[10] > 1 %}
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                {% elif result[10] > 0 %}
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                {% else %}
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                {% endif %}
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-lg-4">
+                                    <label class="control-label">Average Rent</label>
+                                    <a href="#" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Calculated by averaging rent from all reviews for this property.">
+                                        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                                    </a>
+                                </div>
+								<div class="col-lg-6">
+                                    {% if result[12] != 0 %}
+									<p>${{ result[12] }}</p>
+                                    {% else %}
+                                    <p>Not Available</p>
+                                    {% endif %}
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-lg-4">
+                                    <label class="control-label">Would Recommend</label>
+                                    <a href="#" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Calculated by averaging recommend ratings from all reviews for this property.">
+                                        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                                    </a>
+                                </div>
+								<div class="col-lg-6">
+									<p>{{ result[11] }}%</p>
+								</div>
+							</div>
+							<a class="btn btn-default" href="/propReview/{{ result[0] }}">Add Review</a>
+						</form>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						{% if result[7] %}
+						<img src="{{ url_for('static', filename='{{ result[7] }}') }}" alt="...">
+						{% elif result[9] == 1 %}
+						<img src="{{ url_for('static', filename='images/house-icon.png') }}" alt="...">
+						{% elif result[9] == 2 %}
+						<img src="{{ url_for('static', filename='images/apartment-icon.png') }}" alt="...">
+						{% elif result[9] == 3 %}
+						<img src="{{ url_for('static', filename='images/studio-icon.png') }}" alt="...">
+						{% elif result[9] == 4 %}
+						<img src="{{ url_for('static', filename='images/townhouse-icon.png') }}" alt="...">
+						{% else %}
+						<img src="{{ url_for('static', filename='images/hooteyes.png') }}" alt="...">
+						{% endif %}
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Reviews Section -->
+    <hr>
+	<div class="reviews-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+                    {% for result in prop_results %}
+					<h3>Reviews ({{ result[8] }})</h3>
+                    {% endfor %}
+				</div>
+				<div class="col-lg-6">
+					<!--<div class="input-group">-->
+						<!--<input type="text" class="form-control" placeholder="Search reviews">-->
+						<!--<span class="input-group-btn">-->
+							<!--<button type="button" class="btn btn-default">-->
+								<!--<span class="glyphicon glyphicon-search" aria-hidden="true"></span>-->
+							<!--</button>-->
+						<!--</span>-->
+					<!--</div>-->
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+                {% if review_results %}
+                    {% for result in review_results %}
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="review">
+                        <div class="col-lg-6">
+                            <h4>{{ result[1] }}</h4>
+
+                            <h5>{{ href2user(result[2]) }} &nbsp; &nbsp; &nbsp; {{ result[9] }}</h5>
+                            <form class="form-horizontal" role="form" action=" ">
+                                <div class="form-group">
+                                    <label class="col-lg-4 control-label">Property Rating</label>
+                                    <div class="col-lg-6">
+                                    {% if result[3] > 4 %}
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    {% elif result[3] > 3 %}
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    {% elif result[3] > 2 %}
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    {% elif result[3] > 1 %}
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    {% elif result[3] > 0 %}
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    {% else %}
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-4 control-label">Management Rating</label>
+                                    <div class="col-lg-6">
+                                    {% if result[4] > 4 %}
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    {% elif result[4] > 3 %}
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    {% elif result[4] > 2 %}
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    {% elif result[4] > 1 %}
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    {% elif result[4] > 0 %}
+                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    {% else %}
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    {% endif %}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-4 control-label">Rent</label>
+                                    <div class="col-lg-6">
+                                        <p>${{ result[5] }}</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-4 control-label">Would Recommend</label>
+                                    <div class="col-lg-6">
+                                        {% if result[6] == 1 %}
+                                        <p>Yes</p>
+                                        {% else %}
+                                        <p>No</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-lg-6">
+                            <p id="review-text">{{ result[7] }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                <div class="col-lg-12">
+                    <h5>There are currently no reviews for this property.</h5>
+                </div>
+                {% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

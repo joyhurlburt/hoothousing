@@ -1,0 +1,263 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="browse">
+	<!-- Filter Section -->
+    <div class="filter-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h3>University of Oregon, Eugene, OR</h3>
+                    <form class="form-inline col-lg-12 col-md-12 col-sm-12 col-xs-12" role="form" action="/filterSubmission" method="post">
+						<div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                            <div class="btn-group btn-input clearfix">
+                                 <select name="distance">
+                                     <option value="null">Distance</option>
+                                     <option value="1">1 mile</option>
+                                     <option value="2">2 mile</option>
+                                     <option value="3">3 mile</option>
+                                     <option value="4">4 mile</option>
+                                     <option value="5">5 mile</option>
+                                </select>
+                            </div>
+						</div>
+                        <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                            <div class="btn-group btn-input clearfix">
+                                 <select name="bedrooms">
+                                     <option value="null">Bedrooms</option>
+                                     <option value="0">0+</option>
+                                     <option value="1">1+</option>
+                                     <option value="2">2+</option>
+                                     <option value="3">3+</option>
+                                     <option value="4">4+</option>
+                                     <option value="5">5+</option>
+                                </select>
+                            </div>
+						</div>
+                        <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                            <div class="btn-group btn-input clearfix">
+                                 <select name="bathrooms">
+                                     <option value="null">Bathrooms</option>
+                                     <option value="0">0+</option>
+                                     <option value="1">1+</option>
+                                     <option value="2">2+</option>
+                                     <option value="3">3+</option>
+                                     <option value="4">4+</option>
+                                     <option value="5">5+</option>
+                                </select>
+                            </div>
+						</div>
+                        <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                            <div class="btn-group btn-input clearfix">
+                                 <select name="min-rent">
+                                     <option value="null">Min Rent</option>
+                                     <option value="300">300</option>
+                                     <option value="400">400</option>
+                                     <option value="500">500</option>
+                                     <option value="600">600</option>
+                                     <option value="700">700</option>
+                                     <option value="800">800</option>
+                                     <option value="900">900</option>
+                                     <option value="1000">1000</option>
+                                     <option value="1250">1250</option>
+                                     <option value="1500">1500</option>
+                                     <option value="1750">1750</option>
+                                     <option value="2000">2000</option>
+                                </select>
+                            </div>
+						</div>
+                        <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                            <div class="btn-group btn-input clearfix">
+                                 <select name="max-rent">
+                                     <option value="null">Max Rent</option>
+                                     <option value="500">500</option>
+                                     <option value="600">600</option>
+                                     <option value="700">700</option>
+                                     <option value="800">800</option>
+                                     <option value="900">900</option>
+                                     <option value="1000">1000</option>
+                                     <option value="1250">1250</option>
+                                     <option value="1500">1500</option>
+                                     <option value="1750">1750</option>
+                                     <option value="2000">2000</option>
+                                     <option value="2000">2500</option>
+                                     <option value="2000">3000</option>
+                                </select>
+                            </div>
+						</div>
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label class="col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label" id="unit-label">Unit Type</label>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" id="checkbox">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="unit-type-1" id="house" value="1"> House
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" id="checkbox">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="unit-type-2" id="apartment" value="2"> Apartment
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" id="checkbox">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="unit-type-3" id="studio" value="3"> Studio
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" id="checkbox">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="unit-type-4" id="townhouse" value="4"> Townhouse
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						    <a href="#"><button type="submit" class="btn btn-default">Apply Filters</button></a>
+                        </div>
+					</form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Properties Section -->
+    <hr>
+    <div class="properties-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    {% if results %}
+                        {% for result in results %}
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="thumbnail">
+                                <a href="/property/{{ result[0] }}">
+                                    {% if result[5] %}
+                                    <img src="{{ url_for('static', filename='{{ result[5] }}') }}" alt="...">
+                                    {% elif result[9] == 1 %}
+                                    <img src="{{ url_for('static', filename='images/house-icon.png') }}" alt="...">
+                                    {% elif result[9] == 2 %}
+                                    <img src="{{ url_for('static', filename='images/apartment-icon.png') }}" alt="...">
+                                    {% elif result[9] == 3 %}
+                                    <img src="{{ url_for('static', filename='images/studio-icon.png') }}" alt="...">
+                                    {% elif result[9] == 4 %}
+                                    <img src="{{ url_for('static', filename='images/townhouse-icon.png') }}" alt="...">
+                                    {% else %}
+                                    <img src="{{ url_for('static', filename='images/hooteyes.png') }}" alt="...">
+                                    {% endif %}
+                                </a>
+                                <div class="caption">
+                                    {% if result[1] %}
+                                        {% if result[4] > 4 %}
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <h4 id="review-count">({{ result[8] }})</h4>
+                                        {% elif result[4] > 3 %}
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <h4 id="review-count">({{ result[8] }})</h4>
+                                        {% elif result[4] > 2 %}
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <h4 id="review-count">({{ result[8] }})</h4>
+                                        {% elif result[4] > 1 %}
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <h4 id="review-count">({{ result[8] }})</h4>
+                                        {% elif result[4] > 0 %}
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <h4 id="review-count">({{ result[8] }})</h4>
+                                        {% else %}
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <h4 id="review-count">({{ result[8] }})</h4>
+                                        {% endif %}
+                                    <h3>{{ result[1] }}</h3>
+                                    <h4>{{ result[2] }}</h4>
+                                    {% else %}
+                                        {% if result[4] > 4 %}
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <h4 id="review-count">({{ result[8] }})</h4>
+                                        {% elif result[4] > 3 %}
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <h4 id="review-count">({{ result[8] }})</h4>
+                                        {% elif result[4] > 2 %}
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <h4 id="review-count">({{ result[8] }})</h4>
+                                        {% elif result[4] > 1 %}
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <h4 id="review-count">({{ result[8] }})</h4>
+                                        {% elif result[4] > 0 %}
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <h4 id="review-count">({{ result[8] }})</h4>
+                                        {% else %}
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                            <h4 id="review-count">({{ result[8] }})</h4>
+                                        {% endif %}
+                                    <h3>{{ result[2] }}</h3>
+                                    {% endif %}
+                                    <h4>{{ result[10] }} Beds, {{ result[11] }} Baths</h4>
+                                    <h4><a id="mgmt-link" href="/management/{{ result[6] }}">{{ result[7] }}</a></h4>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                    <h5 class="no-results" id="first">There aren't any results that match your criteria. Please check your search or try changing your filters.</h5>
+                    <!--<h5 class="no-results" id="second">Still can't find a property? We might not have it in our datase yet. Feel free to <a href="{{ url_for('contact') }}">contact us</a> with any questions or concerns!</h5>-->
+                    <h5 class="no-results" id="second">Still can't find a property? We're sorry, we might not have it in our database yet.</h5>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
